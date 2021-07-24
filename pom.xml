@@ -82,8 +82,8 @@
   <distributionManagement>
     <repository>
       <id>github</id>
-      <name>GitHub OWNER Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/OWNER/REPOSITORY</url>
+      <name>GitHub tzq0301 Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/tzq0301/common-api-1.0.0</url>
     </repository>
   </distributionManagement>
 </project>
