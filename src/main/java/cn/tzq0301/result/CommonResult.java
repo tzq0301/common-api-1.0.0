@@ -16,10 +16,14 @@ public class CommonResult<T> implements Serializable {
     private final T data;
     private final String message;
 
-    public CommonResult(int code, T data, String message) {
+    public CommonResult(T data, int code, String message) {
         this.code = code;
         this.data = data;
         this.message = message;
+    }
+
+    public static <T> CommonResult<T> success() {
+        return success(null);
     }
 
     public static <T> CommonResult<T> success(T data) {
@@ -27,7 +31,11 @@ public class CommonResult<T> implements Serializable {
     }
 
     public static <T> CommonResult<T> success(T data, String message) {
-        return new CommonResult<>(ResponseCode.SUCCESS.getCode(), data,message);
+        return new CommonResult<>(data, ResponseCode.SUCCESS.getCode(), message);
+    }
+
+    public static <T> CommonResult<T> error() {
+        return error(null);
     }
 
     public static <T> CommonResult<T> error(T data) {
@@ -39,6 +47,10 @@ public class CommonResult<T> implements Serializable {
     }
 
     public static <T> CommonResult<T> error(T data, int code, String message) {
-        return new CommonResult<>(code, data, message);
+        return new CommonResult<>(data, code, message);
+    }
+
+    public static <T> CommonResult<T> error(T data, ResponseCode code, String message) {
+        return error(data, code.getCode(), message);
     }
 }
